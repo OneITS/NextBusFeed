@@ -4,13 +4,17 @@ import csv
 import time
 from lxml import etree
 
-#get the page's contents
-routePage = requests.get('http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=ttc')
-#form element tree
-routeList = etree.fromstring(routePage.content)
-#get all route numbers into an array
-routes=[route.attrib['tag']for route in routeList]
 
+def getRoutes ():
+    #get the page's contents
+    routePage = requests.get('http://webservices.nextbus.com/service/publicXMLFeed?command=routeList&a=ttc')
+    #form element tree
+    routeList = etree.fromstring(routePage.content)
+    #get all route numbers into an array
+    routes=[route.attrib['tag']for route in routeList]
+    return routes
+
+routes = getRoutes()
 #get current time in msec
 msec = int(round(time.time() * 1000))
 
