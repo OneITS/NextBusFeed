@@ -1,3 +1,8 @@
+#Date: 08-04-2018
+#Author: Ta Jiun Ting
+#Description: Get all available routes from nextbusfeed, then query all vehicle positions into a csv file
+
+
 import lxml
 import requests
 import csv
